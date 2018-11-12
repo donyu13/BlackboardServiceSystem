@@ -1,5 +1,9 @@
 # BlackboardServiceSystem
 
+A system provide blackboard service.
+
+## Test
+```
 <Course>
 1. GET
 webapi/courses
@@ -47,7 +51,6 @@ webapi/professors/{professorID}
 1. GET
 webapi/students
 webapi/students/{studentID}
-...
 2. POST 
 webapi/students/
 body: 
@@ -111,4 +114,7 @@ body:
 4.DELETE 
 webapi/boards/{boardID}
 
-# Service class - Generic Service class, including Search, Search all, Delete, Create/Update services.
+
+Service class - Generic Service class, including Search, Search all, Delete, Create/Update services.
+```
+
