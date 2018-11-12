@@ -4,6 +4,9 @@ A system provide blackboard service.
 
 ## Test
 ```
+Postman Test Requests Collection link:
+  https://www.getpostman.com/collections/76550016f4c7fb908cef
+
 <Course>
 1. GET
 webapi/courses
@@ -117,7 +120,5 @@ webapi/boards/{boardID}
 
 Service class - Generic Service class, including Search, Search all, Delete, Create/Update services.
 
-Postman Test Requests Collection link:
-https://www.getpostman.com/collections/76550016f4c7fb908cef
 ```
 
