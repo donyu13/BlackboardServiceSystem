@@ -5,7 +5,10 @@ A system provide blackboard service.
 ## Test
 ```
 Postman Test Requests Collection link:
+For assignment 2
   https://www.getpostman.com/collections/76550016f4c7fb908cef
+For assignment 3
+  https://www.getpostman.com/collections/0bbeb373d960219774b5
 
 <Course>
 1. GET
@@ -63,7 +66,7 @@ body:
 "studentId": 5,
 "joiningDate": "1.11.2018",
 "lastName": "Meng",
-"registeredCourses":[1, 2]
+"emailId": "meng.careers@gmail.com"
 }
 3.PUT
 webapi/students/{studentID}
@@ -73,6 +76,9 @@ body:
 }
 4.DELETE 
 webapi/students/{studentID}
+5.Register Course
+webapi/students/{studentID}/register
+body: 14
 
 <Annoucement>
 1. GET
