@@ -13,16 +13,18 @@ public class Announcement extends DynamoDBObject{
 	private String id;
 	private long announcementId;
 	private String announcementText; // Ensure text size is no more than 160 characters.
+	private long courseId;
 	private long boardId;
 
 	public Announcement() {
 
 	}
 
-	public Announcement(long announcementId, String announcementText, long boardId) {
+	public Announcement(long announcementId, String announcementText, long boardId, long courseId) {
 		this.announcementId = announcementId;
 		this.announcementText = announcementText;
 		this.boardId = boardId;
+		this.courseId = courseId;
 	}
 
 	
@@ -51,6 +53,16 @@ public class Announcement extends DynamoDBObject{
 
 	public void setAnnouncementText(String announcementText) {
 		this.announcementText = announcementText;
+	}
+	
+	
+	@DynamoDBIndexHashKey(attributeName = "CourseId", globalSecondaryIndexName = "CourseIdInAnnouncement")
+	public long getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(long courseId) {
+		this.courseId = courseId;
 	}
 
 	@DynamoDBIndexHashKey(attributeName = "BoardId", globalSecondaryIndexName = "BoardIdInAnnouncement")

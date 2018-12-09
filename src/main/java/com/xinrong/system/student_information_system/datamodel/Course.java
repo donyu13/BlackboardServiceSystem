@@ -18,13 +18,14 @@ public class Course extends DynamoDBObject{
 	private String department;
 	private long boardId;
 	private List<Long> roster;
+	private String notificationTopic;
 
 	public Course() {
 
 	}
 
 
-	public Course(long courseId, long professorId, long tAId, String department, long boardId, List<Long> roster) {
+	public Course(long courseId, long professorId, long tAId, String department, long boardId, List<Long> roster, String notificationTopic) {
 		super();
 		this.courseId = courseId;
 		this.professorId = professorId;
@@ -32,6 +33,7 @@ public class Course extends DynamoDBObject{
 		this.department = department;
 		this.boardId = boardId;
 		this.roster = roster;
+		this.notificationTopic = notificationTopic;
 	}
 
 
@@ -99,4 +101,15 @@ public class Course extends DynamoDBObject{
 		this.roster = roster;
 	}
 
+	@DynamoDBAttribute(attributeName = "NotificationTopic")
+	public String getNotificationTopic() {
+		return notificationTopic;
+	}
+
+
+	public void setNotificationTopic(String notificationTopic) {
+		this.notificationTopic = notificationTopic;
+	}
+
+	
 }

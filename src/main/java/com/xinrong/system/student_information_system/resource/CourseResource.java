@@ -13,6 +13,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.xinrong.system.student_information_system.datamodel.Course;
+import com.xinrong.system.student_information_system.lambda.AnnouncementLambdaFuncHandler;
+import com.xinrong.system.student_information_system.queuing.TopicUtil;
 import com.xinrong.system.student_information_system.service.Services;
 
 @Path("courses")
@@ -41,6 +43,10 @@ public class CourseResource {
 		if (courseService.getItemById(Course.class, course.getCourseId()) != null) {
 			return null;
 		}
+		// Create a topic for course.
+		String topicArn = new TopicUtil().addTopic(course.getCourseId());
+		course.setNotificationTopic(topicArn);
+		
 		return courseService.addOrUpdateItem(course);
 	}
 

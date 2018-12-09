@@ -20,6 +20,7 @@ public class DynamoDBConnector {
 		try {
 			if (amazonDynamoDB == null) {
 				InstanceProfileCredentialsProvider credentialsProvider = new InstanceProfileCredentialsProvider(false);
+				// local
 //				 ProfileCredentialsProvider credentialsProvider = new
 //				 ProfileCredentialsProvider();
 				credentialsProvider.getCredentials();
