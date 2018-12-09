@@ -1,6 +1,15 @@
 # BlackboardServiceSystem
 
 A system provide blackboard service.
+RESTful service: GET, PUT, POST, DELETE Courses, Students, Professors, Announcements and Boards
+
+Cloud Storage: DynamoDB
+
+Serverless: Lambda 
+  When a course is created, a SNS topic is generated. 
+  When a student register the course, he subscribes the SNS topic automatically.
+  When course publishes an annoucement, the studetn will receive an notice email.
+
 
 ## Test
 ```
@@ -125,6 +134,7 @@ webapi/boards/{boardID}
 
 
 Service class - Generic Service class, including Search, Search all, Delete, Create/Update services.
-
+TopicUtil class - Utility class for the SNS Topic.
+AnnouncementLambdaFuncHandler class - Lambda function.
 ```
 
