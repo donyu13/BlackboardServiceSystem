@@ -16,7 +16,7 @@ public class Services {
 	private static DynamoDBMapper dynamoDBMapper;
 	private static Services services = null;
 
-	public Services() {
+	private Services() {
 		dynamoDBMapper = DynamoDBConnector.getDynamoDBMapper();
 	}
 

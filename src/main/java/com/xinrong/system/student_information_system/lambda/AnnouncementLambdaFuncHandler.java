@@ -15,19 +15,19 @@ import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 import com.amazonaws.services.sns.model.PublishRequest;
 
-public class AnnouncementLambdaFuncHandler implements RequestHandler<DynamodbEvent, String> {
+public class AnnouncementLambdaFuncHandler implements RequestHandler<DynamodbEvent, Table> {
 	private static AmazonSNS SNS_CLIENT = AmazonSNSClientBuilder.standard().withRegion("us-east-2").build();
 	private static DynamoDB ddb = new DynamoDB(AmazonDynamoDBClientBuilder.standard().withRegion("us-east-2").build());
 
 	@Override
-	public String handleRequest(DynamodbEvent event, Context context) {
+	public Table handleRequest(DynamodbEvent event, Context context) {
 		for (DynamodbStreamRecord record : event.getRecords()) {
 			Map<String, AttributeValue> announcementImage = record.getDynamodb().getNewImage();
 			if (record.getEventName().equals("INSERT")) {
 				sendEmailNotification(getCourseTopicArn(announcementImage), constructAnnouncement(announcementImage));
 			}
 		}
-		return "Sent notification";
+		return ddb.getTable("Courses");
 	}
 
 	private String constructAnnouncement(Map<String, AttributeValue> announcementImage) {

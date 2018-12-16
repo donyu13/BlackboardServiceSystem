@@ -14,7 +14,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.xinrong.system.student_information_system.datamodel.Student;
-import com.xinrong.system.student_information_system.lambda.AnnouncementLambdaFuncHandler;
 import com.xinrong.system.student_information_system.queuing.TopicUtil;
 import com.xinrong.system.student_information_system.datamodel.Course;
 import com.xinrong.system.student_information_system.service.Services;
@@ -60,7 +59,7 @@ public class StudentResource {
 
 		if (student.getRegisteredCourses() == null)
 			student.setRegisteredCourses(new ArrayList<Long>());
-		
+
 		// A student can register for a max of 3 courses.
 		if (student.getRegisteredCourses().size() < 3) {
 			student.getRegisteredCourses().add(courseID);

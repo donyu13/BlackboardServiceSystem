@@ -13,7 +13,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.xinrong.system.student_information_system.datamodel.Course;
-import com.xinrong.system.student_information_system.lambda.AnnouncementLambdaFuncHandler;
 import com.xinrong.system.student_information_system.queuing.TopicUtil;
 import com.xinrong.system.student_information_system.service.Services;
 
