@@ -1,16 +1,26 @@
 # BlackboardServiceSystem
 
 A system provide blackboard service.
-RESTful service: GET, PUT, POST, DELETE Courses, Students, Professors, Announcements and Boards
 
-Cloud Storage: DynamoDB
+RESTful service:  GET, PUT, POST, DELETE Courses, Students, Professors, Announcements and Boards. POST Registrars.
 
-Serverless: Lambda 
+AWS Elastic Beanstalk
+http://blackboardservice-env.agrb8ruvva.us-east-2.elasticbeanstalk.com/
+
+Amazon Api Gateway
+https://nx1ierzq5e.execute-api.us-east-2.amazonaws.com/dev
+
+Cloud Storage: 
+DynamoDB
+
+Lambda:
+
   When a course is created, a SNS topic is generated. 
   When a student register the course, he subscribes the SNS topic automatically.
   When course publishes an annoucement, the studetn will receive an notice email.
 
 Workflow: 
+
   When a course is passed to CourseCreation API (in API Gateway), a state machine is triggered, a workflow starts.
   The workflows first step is to determine if the course is new and if resources need to be created for it. 
   A course is new if boardId, listofRegisteredStudents and it’s notificationTopic field are empty. 
