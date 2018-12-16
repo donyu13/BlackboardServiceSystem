@@ -8,7 +8,7 @@ AWS Elastic Beanstalk
 http://blackboardservice-env.agrb8ruvva.us-east-2.elasticbeanstalk.com/
 
 Amazon Api Gateway
-https://nx1ierzq5e.execute-api.us-east-2.amazonaws.com/dev
+https://nx1ierzq5e.execute-api.us-east-2.amazonaws.com/dev/courses
 
 Cloud Storage: 
 DynamoDB
@@ -37,15 +37,17 @@ For assignment 2
   https://www.getpostman.com/collections/76550016f4c7fb908cef
 For assignment 3
   https://www.getpostman.com/collections/0bbeb373d960219774b5
+For assignment 4
+  https://www.getpostman.com/collections/ef4a3761cc43ddcd303c
   
 <Workflow>
-CourseCreation API (in API Gateway) 
-https://nx1ierzq5e.execute-api.us-east-2.amazonaws.com/dev
+CourseCreation API (in API Gateway) POST
+https://nx1ierzq5e.execute-api.us-east-2.amazonaws.com/dev/courses
 body:
-{"courseId": 80,"professorId": 1,"TAId": 1,"department": "IS","boardId": 1}
-{"courseId": 80,"professorId": 1,"TAId": 1,"department": "IS"}
-{"courseId": 81,"professorId": 1,"TAId": 1,"department": "Seminars"}
-
+{
+  "input": "{\"courseId\": 20,\"professorId\": 1,\"TAId\": 1,\"department\": \"IS\"}",
+  "stateMachineArn": "arn:aws:states:us-east-2:022384369715:stateMachine:LambdaStateMachine-Notify"
+}
 
 <Course>
 1. GET
